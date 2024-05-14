@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Calendar</title>
+    <script type="module" crossorigin src="./main.js"></script>
+    <link rel="stylesheet" href="/assets/index.722d599b.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button id="clearData">Clear DATA</button>
+  <button class="bigButtons" id="todayButton">Today</button>
+  <button class="bigButtons" id="calendarButton">Calendar</button>
+  <button id="NewEventButton">+</button>
+  <h3>Monday</h3>
+  <h1 id="time">13:12</h1>
+  <h1 id="month">MAY</h1>
+  <div id="newEventTab">
+      <form>
+          <label for="fname">Name of Event</label><br>
+          <input type="text" id="EventName" name="fname"><br>
+          <label for="fname">Description</label><br>
+          <input type="text" id="Description" name="fname"><br>
+          <label for="lname">Start Time</label><br>
+          <input type="time" id="StartTime" name="lname">
+          <label for="lname">End Time</label><br>
+          <input type="time" id="EndTime" name="lname">
+      </form> 
+      <button id="SubmitButton">Submit</button>
+  </div>
+  <div id="AlternitTimes">
+      <div class="TimeZone">
+          <h4 class="AltTime" id="newYork">1:20 PM</h4>
+          <h3 class="location">New York</h3>
+      </div>
+      <div class="TimeZone">
+          <h4 class="AltTime" id="Kingdom">6:20 PM</h4>
+          <h3 class="location">United Kingdom</h3>
+      </div>
+  </div>
+  <div id="bar"></div>
+  <div id="tasks">
+      <h2 id="TodayEvent">Today's Events</h2>
+      <div id="eventContainer">
+          <!-- Add more events here -->
+      </div>
+  </div>
+</body>
+</html>
