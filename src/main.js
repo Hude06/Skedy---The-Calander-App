@@ -1,4 +1,5 @@
 import { Preferences } from '@capacitor/preferences';
+import { Camera, CameraResultType } from '@capacitor/camera';
 
 let timeElement = document.getElementById("time");
 let today = document.getElementById("todayButton");
@@ -7,6 +8,7 @@ let calendar = document.getElementById("calendarButton");
 let startTime = document.getElementById("StartTime");
 let endTime = document.getElementById("EndTime");
 let eventName = document.getElementById("EventName");
+let takePIC = document.getElementById("pic")
 let now = new Date();
 let calendarVisible = false;
 let events = [];
@@ -29,7 +31,16 @@ const getData = async (key) => {
   const { value } = await Preferences.get({ key });
   return value;
 };
-
+const takePicture = async () => {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri
+    });
+  
+    var imageUrl = image.webPath;
+    return imageUrl
+};
 class Event {
   constructor(name, start, end) {
     this.name = name;
@@ -84,6 +95,11 @@ calendar.addEventListener("click", function() {
 newEvent.addEventListener("click", function() {
   document.getElementById("newEventTab").style.visibility = "visible";
 });
+takePIC.addEventListener("click", async function() {
+    let pic = await takePicture();
+    document.getElementById("photo").setAttribute("src", pic);
+});
+
 
 document.getElementById("SubmitButton").addEventListener("click", async function() {
   events.push(new Event(eventName.value, startTime.value, endTime.value));
