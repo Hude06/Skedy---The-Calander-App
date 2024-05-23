@@ -126,6 +126,7 @@ function loop() {
   let formattedMinutes = currentMinutes < 10 ? "0" + currentMinutes : currentMinutes;
   let currentTime = formattedHours + ":" + formattedMinutes;
   timeElement.textContent = currentTime;
+  console.log(currentTime)
   for (let i = 0; i < events.length; i++) {
     if (events[i].created === false) {
       var eventLayout = createEventLayout(events[i]);
